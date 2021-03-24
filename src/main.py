@@ -1,6 +1,7 @@
 #!/bin/python3
 
 import argparse
+from enum import Enum
 from hr_challenges import *
 
 if __name__ == '__main__':
