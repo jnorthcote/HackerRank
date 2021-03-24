@@ -31,10 +31,10 @@ class Challenge(bytes, Enum):
         return Challenge.HELP.entity
 
 class SockMerchant():
-    def __init__(self, sockData):
+    def __init__(self, pile, sockData):
         self.fields = {}
 
-        self.fields['pile'] = sockData.pop(0)
+        self.fields['pile'] = pile
         self.fields['colors'] = sockData
 
     def __repr__(self):
