@@ -58,5 +58,5 @@ class SockMerchant():
 
         # result = len([x for x in counts if x == probe])
         print("sockMerchant: %s" % (result))
-        # print("sockMerchant: n: %s ar: %s r: %s" % (n, ar, result))
+        print("sockMerchant: n: %s ar: %s r: %s" % (n, ar, result))
         return result
