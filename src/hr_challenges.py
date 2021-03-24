@@ -47,6 +47,7 @@ class SockMerchant():
         result = 0
         n = self.fields['pile']
         ar = self.fields['colors']
+        print("SockMerchant.evaluate: n: %s ar: %s" % (n, ar))
         if 1 < n <= 100 and len(ar) == n:
             counts = dict()
             for color in [c for c in ar if 1 <= c <= 100]:
@@ -58,5 +59,4 @@ class SockMerchant():
 
         # result = len([x for x in counts if x == probe])
         print("sockMerchant: %s" % (result))
-        print("sockMerchant: n: %s ar: %s r: %s" % (n, ar, result))
         return result
