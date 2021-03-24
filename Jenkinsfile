@@ -1,12 +1,14 @@
 pipeline {
     agent none
-    parameters {
-        choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
-    }
+#    parameters {
+#        choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
+#    }
     stages {
         stage('Challenge') {
             agent {
               kubernetes {
+                defaultContainer 'jnlp'
+                inheritFrom 'default'
                 idleMinutes 5
               }
             }
