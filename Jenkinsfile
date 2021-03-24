@@ -8,7 +8,7 @@ pipeline {
             agent {
               kubernetes {
                 defaultContainer 'jnlp'
-                inheritFrom 'default'
+                inheritFrom 'python'
                 workingDir '/home/jenkins'
                 idleMinutes 5
               }
