@@ -1,5 +1,9 @@
 pipeline {
     agent none
+    parameters {
+        choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
+        string(name: 'DATA', defaultValue: '1 1 2 2 3 3 3', description: 'Challenge data')
+    }
     stages {
         stage('Challenge') {
             agent {
@@ -12,10 +16,6 @@ pipeline {
             }
             input {
                 message "Challenge Selection"
-                parameters {
-                    choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
-                    string(name: 'DATA', defaultValue: '1 1 2 2 3 3 3', description: 'Challenge data')
-                }
             }
             steps {
               container('python') {
