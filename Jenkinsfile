@@ -14,8 +14,10 @@ pipeline {
               }
             }
             steps {
+              container('python') {
                 echo "Challenge ${params.CHALLENGE}"
                 sh 'ls -alr'
+              }
             }
         }
     }
