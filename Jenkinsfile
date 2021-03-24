@@ -16,7 +16,9 @@ pipeline {
             steps {
               container('python') {
                 echo "Challenge ${params.CHALLENGE}"
-                sh 'ls -alr'
+                dir ('src/') {
+                  sh("python -u main.py ${params.CHALLENGE} 1 3 3 2")
+                }
               }
             }
         }
