@@ -26,9 +26,9 @@ class Challenge(bytes, Enum):
     def fromName(cls, name):
         for ch in Challenge:
             if name == ch.label:
-                return ch
+                return ch.entity
 
-        return Challenge.HELP
+        return Challenge.HELP.entity
 
 class SockMerchant():
     def __init__(self, sockData):
