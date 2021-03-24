@@ -12,5 +12,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args.challenge)
     cClass = entity_factory(args.challenge)
-    challenge = cClass(args.array)
+    challenge = cClass(len(args.array), args.array)
     challenge.evaluate()
