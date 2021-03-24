@@ -6,6 +6,7 @@ pipeline {
               kubernetes {
                 defaultContainer 'jnlp'
                 inheritFrom 'default'
+                workingDir '/home/jenkins'
                 idleMinutes 5
               }
             }
