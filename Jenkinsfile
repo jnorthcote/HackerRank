@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    parameters {
+        choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
+    }
     stages {
         stage('Challenge') {
             agent {
@@ -11,7 +14,7 @@ pipeline {
               }
             }
             steps {
-                echo "Challenge ${CHALLENGE}"
+                echo "Challenge ${params.CHALLENGE}"
                 sh 'ls -alr'
             }
         }
