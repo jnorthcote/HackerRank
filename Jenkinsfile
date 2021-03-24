@@ -14,14 +14,15 @@ pipeline {
                 message "Challenge Selection"
                 parameters {
                     choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
-                    string(name: 'DATARRAY', defaultValue: '1 1 2 2 3 3 3', description: 'Challenge data')
+                    string(name: 'DATA', defaultValue: '1 1 2 2 3 3 3', description: 'Challenge data')
                 }
             }
             steps {
               container('python') {
-                echo "Challenge ${params.CHALLENGE} ${params.DATARRAY}"
+                echo "Challenge ${params.CHALLENGE}"
+                echo "C Data ${params.DATA}"
                 dir ('src/') {
-                  sh("python -u main.py ${params.CHALLENGE} ${params.DATARRAY}")
+                  sh("python -u main.py ${params.CHALLENGE} ${params.DATA}")
                 }
               }
             }
