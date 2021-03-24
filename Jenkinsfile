@@ -10,14 +10,14 @@ pipeline {
                 idleMinutes 5
               }
             }
+            input {
+                message "Challenge Selection"
+                parameters {
+                    choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
+                    string(name: 'DATA', defaultValue: '1 1 2 2 3 3 3', description: 'Challenge data')
+                }
+            }
             steps {
-              input {
-                  message "Challenge Selection"
-                  parameters {
-                      choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
-                      string(name: 'DATA', defaultValue: '1 1 2 2 3 3 3', description: 'Challenge data')
-                  }
-              }
               container('python') {
                 echo "Challenge ${params.CHALLENGE}"
                 dir ('src/') {
