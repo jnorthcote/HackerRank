@@ -7,9 +7,7 @@ pipeline {
         stage('Challenge') {
             agent {
               kubernetes {
-                label 'python'
                 idleMinutes 5
-                defaultContainer 'python'
               }
             }
             steps {
