@@ -1,3 +1,5 @@
+from enum import Enum
+
 def entity_factory(classname):
      cls = globals()[Challenge.fromName(classname)]
      return cls
