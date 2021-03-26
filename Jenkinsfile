@@ -5,7 +5,7 @@ pipeline {
         input {
             message 'Select Challenge'
             parameters {
-              [choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'Challenge', randomName: 'choice-parameter-4745339100865', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: 'return [\'socks\',\'valleys\']']]]
+              [choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'Challenge', randomName: 'choice-parameter-4745339100865', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: 'return foo']]]
             }
           }
           agent {
