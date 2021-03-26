@@ -11,7 +11,7 @@ pipeline {
                         script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''],
                         script: [classpath: [], sandbox: false, script: "return ['socks', 'valleys', 'jumps']"]]
                     ],
-                    [ $class: 'ChoiceParameter',
+                    [ $class: 'DynamicReferenceParameter',
                       choiceType: 'ET_TEXT_BOX', description: '', name: 'DATA', omitValueField: false, randomName: 'choice-parameter-3528424397275', referencedParameters: 'Challenge',
                         script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: 'return \'\''],
                         script: [classpath: [], sandbox: false, script: "switch(Challenge) { case 'socks': return '1 1 2 2 3 3 3' case 'valleys': return 'DDUDUUUUDDUDDU' case 'jumps': return '0 0 1 0 0 1 0'}"]]
