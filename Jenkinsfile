@@ -28,7 +28,8 @@ pipeline {
           agent {
             label 'python-agent'
           }
-          intput {
+          input {
+            message "Challenge Data"
             parameters {
               string(name: 'DATA', defaultValue: env.DATA_DEF, description: 'Challenge data')
             }
