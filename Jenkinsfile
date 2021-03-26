@@ -36,8 +36,7 @@ pipeline {
             }
           }
           steps {
-              echo "Challenge def: ${CHALLENGE}"
-              echo "Data      def: ${DATA}"
+            echo "Challenge def: ${CHALLENGE}"
           }
       }
     }
