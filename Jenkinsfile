@@ -21,6 +21,7 @@ pipeline {
                 env.DATA_DEF = '0 0 1 0 0 1 0'
                 break;
             }
+            echo "env.DATA_DEF ${env.DATA_DEF}"
           }
         }
       }
