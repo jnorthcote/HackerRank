@@ -9,6 +9,7 @@ pipeline {
     stages {
       stage('Data') {
         steps {
+          echo "params.CHALLENGE ${params.CHALLENGE}"
           script {
             switch(params.CHALLENGE) {
               case 'socks':
@@ -23,6 +24,7 @@ pipeline {
               default:
                 env.DATA_DEF = 'Nope'
                 break;
+              echo env.DATA_DEF
             }
             echo "env.DATA_DEF ${env.DATA_DEF}"
           }
