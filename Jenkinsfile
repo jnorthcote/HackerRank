@@ -6,9 +6,13 @@ pipeline {
     stages {
       stage('Challenge Data') {
         input {
+          message "Challenge Data for: ${CHALLENGE}"
           parameters {
               string(name: 'DATA', defaultValue: params.DATA ?:'1 1 2 2 3 3 3', description: 'Challenge data')
           }
+        }
+        steps {
+          echo "Data: ${params.DATA}"
         }
       }
       stage('Challenge') {
