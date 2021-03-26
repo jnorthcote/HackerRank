@@ -16,8 +16,8 @@ pipeline {
             }
             steps {
               container('python') {
-                echo "Challenge ${CHALLENGE}"
-                echo "C Data ${DATA}"
+                echo "Challenge def: ${CHALLENGE} par: ${params.CHALLENGE}"
+                echo "Data      def: ${DATA} par: ${params.DATA}"
                 dir ('src/') {
                   sh("python -u main.py ${CHALLENGE} ${DATA}")
                 }
