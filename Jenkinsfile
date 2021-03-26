@@ -1,15 +1,12 @@
 pipeline {
     agent none
     stages {
-      stage('Challenge') {
-          agent {
-            label 'python-agent'
-          }
+      stage('Data') {
           steps {
             script {
               properties([
-                  parameters([ $class: 'ChoiceParameter',
-                    [
+                  parameters([
+                    [ $class: 'ChoiceParameter',
                       choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'CHALLENGE', randomName: 'choice-parameter-3528404535625',
                         script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''],
                         script: [classpath: [], sandbox: false, script: "return ['socks', 'valleys', 'jumps']"]]
@@ -22,6 +19,13 @@ pipeline {
                   ])
               ])
             }
+          }
+      }
+      stage('Challenge') {
+          agent {
+            label 'python-agent'
+          }
+          steps {
             container('python') {
               echo "Challenge def: ${CHALLENGE} par: ${params.CHALLENGE}"
               echo "Data      def: ${DATA} par: ${params.DATA}"
