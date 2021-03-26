@@ -7,12 +7,7 @@ pipeline {
     stages {
         stage('Challenge') {
             agent {
-              kubernetes {
-                defaultContainer 'jnlp'
-                inheritFrom 'python'
-                workingDir '/home/jenkins'
-                idleMinutes 5
-              }
+              label 'python-agent'
             }
             steps {
               container('python') {
