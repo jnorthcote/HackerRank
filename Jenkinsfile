@@ -24,7 +24,7 @@ pipeline {
                 DATA_DEF = 'Nope'
                 break;
             }
-            echo "env.DATA_DEF ${env.DATA_DEF}"
+            echo "env.DATA_DEF ${env.DATA_DEF} ${DATA_DEF}"
           }
         }
       }
@@ -35,7 +35,7 @@ pipeline {
           input {
             message "Challenge Data"
             parameters {
-              string(name: 'DATA', defaultValue: env.DATA_DEF, description: 'Challenge data')
+              string(name: 'DATA', defaultValue: DATA_DEF, description: 'Challenge data')
             }
           }
           steps {
