@@ -35,7 +35,7 @@ pipeline {
           input {
             message "Challenge Data"
             parameters {
-              string(name: 'DATA', defaultValue: DATA_DEF, description: 'Challenge data')
+              string(name: 'DATA', defaultValue: DATA_DEF?:"", description: 'Challenge data')
             }
           }
           steps {
