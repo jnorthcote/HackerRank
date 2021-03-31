@@ -28,8 +28,8 @@ pipeline {
             } catch (Exception e) {
               echo "${e}"
             }
-            echo "env.DATA_DEF ${DATA_DEF}"
           }
+          echo "env.DATA_DEF ${DATA_DEF}"
         }
       }
       stage('Challenge') {
@@ -39,7 +39,7 @@ pipeline {
           input {
             message "Challenge Data"
             parameters {
-              string(name: 'DATA', defaultValue: DATA_DEF?:"error", description: 'Challenge data')
+              string(name: 'DATA', defaultValue: "${DATA_DEF}"?:"error", description: 'Challenge data')
             }
           }
           steps {
