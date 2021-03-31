@@ -60,3 +60,31 @@ class SockMerchant():
         # result = len([x for x in counts if x == probe])
         print("sockMerchant: %s" % (result))
         return result
+
+class CountingValleys():
+    def __init__(self, steps, path):
+        self.fields = {}
+
+        self.fields['steps'] = steps
+        self.fields['path'] = path
+
+    def __repr__(self):
+        return "<path:%s>" % (path)
+
+    def __str__(self):
+        return "CountingValleys:%s" % (self.fields['path'])
+
+    def evaluate(self):
+        valleys = 0
+        steps = self.fields['steps']
+        path = self.fields['path']
+        if 2 <= steps <= 10**6 and len(path) == steps:
+            altitude = 0
+            for step in path:
+                altitude += 1 if step == 'U' else -1
+                print("alt: %s step: %s" % (altitude, step))
+                if altitude == 0 and step == 'U':
+                    valleys += 1
+
+        print("steps: %s pathlen: %s valleys: %s" % (steps, len(path), valleys))
+        return valleys
