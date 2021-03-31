@@ -3,26 +3,27 @@ pipeline {
     parameters {
         choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
     }
-    environment {
-        DATA_DEF = "IDD"
-    }
     stages {
       stage('Data') {
         steps {
           script {
-            switch(params.CHALLENGE) {
-              case 'socks':
-                DATA_DEF = '1 1 2 2 3 3 3'
-                break;
-              case 'valleys':
-                DATA_DEF = 'DDUDUUUUDDUDDU'
-                break;
-              case 'jumps':
-                DATA_DEF = '0 0 1 0 0 1 0'
-                break;
-              default:
-                DATA_DEF = 'Nope'
-                break;
+            try {
+              switch(params.CHALLENGE) {
+                case 'socks':
+                  env.DATA_DEF = '1 1 2 2 3 3 3'
+                  break;
+                case 'valleys':
+                  env.DATA_DEF = 'DDUDUUUUDDUDDU'
+                  break;
+                case 'jumps':
+                  env.DATA_DEF = '0 0 1 0 0 1 0'
+                  break;
+                default:
+                  env.DATA_DEF = 'Nope'
+                  break;
+              }
+            } catch (Exception e) {
+              echo "${e}"
             }
             echo "env.DATA_DEF ${env.DATA_DEF}"
           }
