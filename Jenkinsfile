@@ -13,10 +13,10 @@ pipeline {
             try {
               switch(params.CHALLENGE) {
                 case 'socks':
-                  DATA_DEF = '1 1 2 2 3 3 3'
+                  DATA_DEF = '"1 1 2 2 3 3 3"'
                   break;
                 case 'valleys':
-                  DATA_DEF = 'DDUDUUUUDDUDDU'
+                  DATA_DEF = '"DDUDUUUUDDUDDU"'
                   break;
                 case 'jumps':
                   DATA_DEF = '0 0 1 0 0 1 0'
