@@ -21,7 +21,7 @@ class Challenge(bytes, Enum):
 
     HELP     = (0,  'help', 'Help')
     SOCKS    = (1,  'socks', 'SockMerchant')
-    VALLEYS  = (1,  'valleys', 'CountingValleys')
+    VALLEYS  = (2,  'valleys', 'CountingValleys')
 
     @classmethod
     def fromName(cls, name):
