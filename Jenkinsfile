@@ -33,6 +33,12 @@ pipeline {
           agent {
             label 'python-agent'
           }
+          input {
+            message "Challenge Data"
+            parameters {
+              string(name: 'DATA', defaultValue: env.DATA_DEF?:"error", description: 'Challenge data')
+            }
+          }
           steps {
             container('python') {
               echo "Challenge def: ${CHALLENGE} par: ${params.CHALLENGE}"
