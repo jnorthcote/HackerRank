@@ -50,14 +50,14 @@ class UTree():
         c = self.fields['cycles']
         print("UTree.evaluate: t: %s c: %s" % (t, c))
         if 1 < t <= 10 and len(c) == t:
-            height = 1
             for case in c:
+                height = 1
                 for cycle in range(case):
                     if cycle % 2 == 0:
                         height = height * 2
                     else:
                         height += 1
-            print("UTree.evaluate: case: %s height: %s" % (case, height))
+                print("UTree.evaluate: case: %s height: %s" % (case, height))
         return
 
 class SockMerchant():
