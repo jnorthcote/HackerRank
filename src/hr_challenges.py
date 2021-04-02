@@ -22,6 +22,7 @@ class Challenge(bytes, Enum):
     HELP     = (0,  'help', 'Help')
     SOCKS    = (1,  'socks', 'SockMerchant')
     VALLEYS  = (2,  'valleys', 'CountingValleys')
+    UTREE    = (3,  'utree', 'UTree')
 
     @classmethod
     def fromName(cls, name):
@@ -31,6 +32,34 @@ class Challenge(bytes, Enum):
 
         return Challenge.HELP.entity
 
+class UTree():
+    def __init__(self, t, c):
+        self.fields = {}
+
+        self.fields['tests'] = t
+        self.fields['cycles'] = c
+
+    def __repr__(self):
+        return "<UTree:%s>" % (self.fields['cycles'])
+
+    def __str__(self):
+        return "UTree:%s" % (self.fields['cycles'])
+
+    def evaluate(self):
+        t = self.fields['tests']
+        c = self.fields['cycles']
+        print("UTree.evaluate: t: %s c: %s" % (t, c))
+        if 1 < t <= 10 and len(c) == t:
+            height = 1
+            for case in c:
+                for cycle in range(case):
+                    if cycle % 2 == 0:
+                        height = height * 2
+                    else:
+                        height += 1
+            print("UTree.evaluate: case: %s height: %s" % (case, height))
+        return
+
 class SockMerchant():
     def __init__(self, pile, sockData):
         self.fields = {}
@@ -39,7 +68,7 @@ class SockMerchant():
         self.fields['colors'] = sockData
 
     def __repr__(self):
-        return "<Sock data:%s>" % (sockData)
+        return "<Sock data:%s>" % (self.fields['colors'])
 
     def __str__(self):
         return "SockMerchant:%s" % (self.fields['colors'])

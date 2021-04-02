@@ -1,7 +1,7 @@
 pipeline {
     agent none
     parameters {
-        choice(name: 'CHALLENGE', choices: ['socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
+        choice(name: 'CHALLENGE', choices: ['utree', 'socks', 'valleys', 'jumps'], description: 'Pick a Challenge')
     }
     environment {
       DATA_DEF = "XXX"
@@ -12,6 +12,9 @@ pipeline {
           script {
             try {
               switch(params.CHALLENGE) {
+                case 'utree':
+                  DATA_DEF = '0 1 4'
+                  break;
                 case 'socks':
                   DATA_DEF = '"1 1 2 2 3 3 3"'
                   break;
